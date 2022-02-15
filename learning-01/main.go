@@ -1,47 +1,35 @@
 package main
 
+import "fmt"
+
 func main() {
-	// main function which manages cards
-	// initial a list called cards which holds a deck of 52 cards
-	// cards := newDeck()
+	// Create a new deck
+	d := newDeck()
 
-	// print cards
-	// cards.printCards()
+	// Save the deck to a file
+	d.saveToFile("my_cards")
 
-	// deal the deck to 4 players
-	// playerQuantity := 4
-	// players, err := cards.deal(playerQuantity)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// //  print each player
-	// for i, player := range players {
-	// 	fmt.Println(i, player)
-	// }
+	// Read the deck from a file
+	d, err := newDeckFromFile("my_cards")
+	if err != nil {
+		panic(err)
+	}
 
-	// convert the deck to stirng
-	// stringDeck := cards.toString()
+	// Shuffle the deck
+	d.shuffle()
 
-	// convert the deck to bytes
-	// bytesDeck := cards.toBytes()
+	// Print the deck
+	// d.printCards()
 
-	// save the deck to a file
-	// cards := newDeck()
-	// err := cards.saveToFile("deck01")
-	// if err != nil {
-	// 	panic(err)
-	// }
+	// Deal the cards
+	players, err := d.dealCards(4)
+	if err != nil {
+		panic(err)
+	}
 
-	// load the deck from a file
-	// cards, err := newDeckFromFile("deck01")
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// cards.printCards()
-
-	// shuffle the deck
-	cards := newDeck()
-	cards.shuffle()
-	cards.printCards()
-
+	// Show playes' decks
+	for i, player := range players {
+		fmt.Println("Player ", i+1, ": ")
+		player.printCards()
+	}
 }
