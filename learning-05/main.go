@@ -14,7 +14,7 @@ func main() {
 	// Response body is actually an io.ReadCloser which is an interface that implements
 	// Read and Close interfaces which are used to read and close the response body.
 	// Here interfaces get a little complicated but the main reason we use nested interfaces
-	// is to add flexibility to out code and also to make it more readable.
+	// is to add flexibility to our code and also to make it more readable.
 	// For instance Read interface implements a function called Read with this signature
 	// func (r io.Reader) Read(b []byte) (n int, err error)
 	// therefore this function can be used to read the response body with any kind of
