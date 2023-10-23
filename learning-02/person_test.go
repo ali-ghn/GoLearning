@@ -21,7 +21,7 @@ func TestChangeName(t *testing.T) {
 	alex.changeName("Hey")
 	// check if the first name is changed
 	if alex.firstName != "Hey" {
-		t.Error("The first name is not changed")
+		t.Error("The first name has not changed")
 	}
 }
 
@@ -42,6 +42,6 @@ func TestNotWorkingChangeName(t *testing.T) {
 	alex.notWorkingChangeName("Hey")
 	// check if the first name is changed
 	if alex.firstName == "Hey" {
-		t.Error("The first name is changed")
+		t.Error("The first name has changed")
 	}
 }
